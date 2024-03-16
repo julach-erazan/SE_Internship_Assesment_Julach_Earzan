@@ -7,15 +7,13 @@ import { useEffect } from 'react';
 function App() {
 
   const [id, setId] = useState();
-  const [firstName, setFirstName]  = useState();
 
   useEffect(() => {
     setId(sessionStorage.getItem("id"));
-    setFirstName(sessionStorage.getItem("firstName"));
   },[])
   return (
     <div className="App">
-      {id != null ? <Dashboard firstName = {firstName}/> : <Home/>}
+      {id != null ? <Dashboard/> : <Home/>}
     </div>
   );
 }

@@ -77,7 +77,7 @@ const Login = () => {
           className="w-[70%] h-[40px] font-semibold rounded-[5px] border-[2px] border-[#01579B] text-[#8d91a5] hover:text-[#fff] hover:bg-[#01579B] mt-[20px]"
           type="submit"
         >
-          Google
+          <h1>Google</h1>
         </button>
       </form>
     </div>
