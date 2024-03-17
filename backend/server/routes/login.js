@@ -24,6 +24,8 @@ router.post("/", async (req, res) => {
       return res.status(401).json({ message: "Invalid Email or Password!" });
     }
 
+    console.log(user);
+
     res.status(201).json({ id: user._id, firstName: user.firstName});
 
   } catch (error) {

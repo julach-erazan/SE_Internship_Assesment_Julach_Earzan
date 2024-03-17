@@ -21,6 +21,7 @@ const handleAddStudent = async (
 
     if (response.status === 201) {
       alert(response.data.message);
+      window.location.reload();
     }
   } catch (error) {
     alert(error.response?.data.message);

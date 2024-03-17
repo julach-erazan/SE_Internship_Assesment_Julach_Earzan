@@ -5,13 +5,19 @@ const Navbar = () => {
   const [firstName, setFirstName] = useState();
 
   useEffect(() => {
-    setFirstName(sessionStorage.getItem("firstName"));
+    if(sessionStorage.getItem("firstName") != null){
+      setFirstName(sessionStorage.getItem("firstName"));
+    }else{
+      setFirstName(sessionStorage.getItem("g_firstName"));
+    }
   },[])
 
   const handleLogOut = () => {
     sessionStorage.clear("id");
     sessionStorage.clear("firstName");
-    window.location.reload();
+    sessionStorage.clear("g_id");
+    sessionStorage.clear("g_firstName");
+    window.location = "/";
   };
   return (
     <div className="w-full min-w-[300px] h-[50px] bg-[#E2ECFC] text-[#5B6271] flex justify-between items-center px-[10px]">

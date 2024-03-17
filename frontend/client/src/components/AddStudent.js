@@ -4,7 +4,7 @@ import { studentAddSchema } from "../schemas/addStudentSchema";
 import { handleAddStudent } from "../controller/handleAddStudent";
 
 const AddStudent = () => {
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("Images/blanckImage.png");
   const inputImage = useRef(null);
 
   const [status, setStatus] = useState();

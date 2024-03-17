@@ -9,12 +9,14 @@ const handleLogin = async (email, password) => {
         password,
       })
       if(response.status === 201){
+
         sessionStorage.setItem("id", response.data.id);
         sessionStorage.setItem("firstName", response.data.firstName);
-        window.location.reload();
+        window.location = "/dashboard";
       }else{
         window.location = "/";
       }
+
   } catch (error) {
     if(
       error.response && 

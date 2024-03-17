@@ -59,7 +59,7 @@ const UpdateStudent = ({onClose, ...props}) => {
         <h1 className="text-[23px] font-semibold">Update Student</h1>
         <button 
           className="w-[50px] h-[50px] bg-[#D11A2A] text-white text-[30px] flex justify-center items-center"
-          // onClick={() => onClose()}
+          onClick={() => onClose()}
         >
           <MdClose/>
         </button>
