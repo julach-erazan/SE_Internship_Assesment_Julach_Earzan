@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import AddStudent from "../../components/AddStudent";
+import AddStudent from "../student/AddStudent";
 import Navbar from "../../components/Navbar";
-import UpdateStudent from "../../components/UpdateStudent";
-import ViewStudent from "../../components/ViewStudent";
+import UpdateStudent from "../student/UpdateStudent";
+import ViewStudent from "../student/ViewStudent";
 import { handleDeleteStudent } from "../../controller/handleDeleteStudent";
 
 const Dashboard = () => {

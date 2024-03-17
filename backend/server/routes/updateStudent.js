@@ -22,9 +22,9 @@ const upload = multer({
 
 router.post("/", upload.single("imagePath"), async (req, res) => {
   try {
-    const user = await StudentModel.findOne({ studentId: req.body.studentId });
+    const user = await StudentModel.findOne({ _id: req.body.id, studentId: req.body.studentId });
 
-    if (user) {
+    if (!user) {
       res.status(401).json({ message: "Student id already exists!" });
       return;
     }

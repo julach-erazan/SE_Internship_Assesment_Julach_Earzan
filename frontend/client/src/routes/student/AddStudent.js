@@ -1,11 +1,10 @@
 import { React, useState, useRef } from "react";
 import { useFormik } from "formik";
-import { studentUpdateSchema } from "../schemas/studentUpdateSchema";
-import { handleUpdateStudent } from "../controller/handleUpdateStudent";
-import { MdClose } from "react-icons/md";
+import { studentAddSchema } from "../../schemas/addStudentSchema";
+import { handleAddStudent } from "../../controller/handleAddStudent";
 
-const UpdateStudent = ({onClose, ...props}) => {
-  const [image, setImage] = useState(null);
+const AddStudent = () => {
+  const [image, setImage] = useState("Images/blanckImage.png");
   const inputImage = useRef(null);
 
   const [status, setStatus] = useState();
@@ -14,8 +13,7 @@ const UpdateStudent = ({onClose, ...props}) => {
     actions.resetForm(); //Reset form data
     inputImage.current.value = ""; //Clear image input field
 
-    handleUpdateStudent(
-      props.data.id,
+    handleAddStudent(
       value.studentId,
       value.studentName,
       image,
@@ -44,25 +42,19 @@ const UpdateStudent = ({onClose, ...props}) => {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      studentId: props.data.studentId,
-      studentName: props.data.studentName,
+      studentId: "",
+      studentName: "",
       imagePath: "",
-      age: props.data.age,
+      age: "",
       status: "",
     },
-    validationSchema: studentUpdateSchema,
+    validationSchema: studentAddSchema,
     onSubmit,
   });
   return (
     <div className="w-[300px] h-full p-[10px]">
-      <div className="w-full h-[50px] bg-[#E2ECFC] text-[#5B6271] flex justify-between items-center pl-[10px]">
-        <h1 className="text-[23px] font-semibold">Update Student</h1>
-        <button 
-          className="w-[50px] h-[50px] bg-[#D11A2A] text-white text-[30px] flex justify-center items-center"
-          onClick={() => onClose()}
-        >
-          <MdClose/>
-        </button>
+      <div className="w-full h-[50px] bg-[#E2ECFC] text-[#5B6271] flex justify-start items-center px-[10px]">
+        <h1 className="text-[23px] font-semibold">Student Register</h1>
       </div>
       <form
         onSubmit={handleSubmit}
@@ -182,7 +174,7 @@ const UpdateStudent = ({onClose, ...props}) => {
             className="w-[70%] h-[40px] font-semibold rounded-[5px] border-[2px] border-[#01579B] text-[#8d91a5] hover:text-[#fff] hover:bg-[#01579B] mt-[20px]"
             type="submit"
           >
-            <h1>Update</h1>
+            <h1>Add</h1>
           </button>
         </div>
       </form>
@@ -190,5 +182,4 @@ const UpdateStudent = ({onClose, ...props}) => {
   );
 };
 
-export default UpdateStudent;
-
+export default AddStudent;
