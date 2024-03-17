@@ -5,10 +5,12 @@ const Navbar = () => {
   const [firstName, setFirstName] = useState();
 
   useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+
     if(sessionStorage.getItem("firstName") != null){
       setFirstName(sessionStorage.getItem("firstName"));
     }else{
-      setFirstName(sessionStorage.getItem("g_firstName"));
+      setFirstName(searchParams.get("firstName"));
     }
   },[])
 
